@@ -2,20 +2,20 @@ import React, { Component } from "react";
 
 const styles = {
   producto: {
-    boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+    boxShadow: "0px 4px 8px rgba(0,0,0,0.2)",
     padding: "20px",
     borderRadius: "10px",
     backgroundColor: "#FFFFFF",
-    width: "30%",
+    width: "100%",
   },
   btnAgregarCarrito: {
     backgroundColor: "#04293c",
     color: "#FFFFFF",
     border: "none",
     borderRadius: "5px",
-    // fontSize: "",
     fontWeight: "bold",
     padding: "10px",
+    cursor:"pointer"
   },
   img: { width: "100%" },
 };
@@ -32,7 +32,7 @@ export default class Producto extends Component {
           title={producto.nombre}
         />
         <h3>{producto.nombre}</h3>
-        <p>{producto.precio}</p>
+        <p>${producto.precio} x Kg</p>
         <button
           style={styles.btnAgregarCarrito}
           onClick={() => agregarAlCarrito(producto)}
