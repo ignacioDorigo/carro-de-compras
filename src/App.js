@@ -19,14 +19,23 @@ export default class App extends Component {
     visibilidadCarro: false,
   };
   agregarAlCarrito = (producto) => {
-    console.log("Agregar el producto: " + producto);
+    const { carro } = this.state;
+    const estaEnCarrito = carro.find((x) => x.nombre === producto.nombre);
+    if (!estaEnCarrito) {
+      return this.setState({ carro: [...carro, { ...producto, cantidad: 1 }] });
+    } else {
+      const nuevoCarro = carro.map((x) =>
+        x.nombre === producto.nombre ? { ...x, cantidad: x.cantidad + 1 } : x
+      );
+      return this.setState({ carro: nuevoCarro });
+    }
   };
   render() {
     return (
       <div>
         <Navbar />
         <Layout>
-          <Titulo texto={"Tienda"}/>
+          <Titulo texto={"Tienda"} />
           <Productos
             productos={this.state.productos}
             agregarAlCarrito={this.agregarAlCarrito}
