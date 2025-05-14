@@ -18,6 +18,7 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    width: "300px",
     height: "50px",
     padding: "5px 10px",
     borderBottom: "1px solid #E1E1E1",
@@ -34,11 +35,15 @@ export default class DetallesCarro extends Component {
     return total;
   }
   render() {
-    const { carro } = this.props;
+    const { carro, eliminarProductoCarrito } = this.props;
     return (
       <ul style={styles.detalles}>
         {carro.map((producto, index) => (
-          <Detalle producto={producto} key={index} />
+          <Detalle
+            eliminarProductoCarrito={eliminarProductoCarrito}
+            producto={producto}
+            key={index}
+          />
         ))}
         <li style={styles.total}>Total: ${this.calcularTotal(carro)}</li>
       </ul>

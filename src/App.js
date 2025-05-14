@@ -30,17 +30,23 @@ export default class App extends Component {
     }
   };
 
+  eliminarProductoCarrito = (producto) => {
+    const { carro } = this.state;
+    const nuevoCarro = carro.filter((prod) => prod.nombre !== producto.nombre);
+    return this.setState({ carro: nuevoCarro });
+  };
+
   mostrarOcultarCarro = () => {
     return this.setState({ visibilidadCarro: !this.state.visibilidadCarro });
   };
   render() {
-    console.log(this.state.visibilidadCarro);
     return (
       <div>
         <Navbar
           carro={this.state.carro}
           visibilidadCarro={this.state.visibilidadCarro}
           mostrarOcultarCarro={this.mostrarOcultarCarro}
+          eliminarProductoCarrito={this.eliminarProductoCarrito}
         />
         <Layout>
           <Titulo texto={"Tienda"} />

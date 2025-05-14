@@ -17,7 +17,12 @@ const styles = {
 
 export default class Carro extends Component {
   render() {
-    const { carro, visibilidadCarro, mostrarOcultarCarro } = this.props;
+    const {
+      carro,
+      visibilidadCarro,
+      mostrarOcultarCarro,
+      eliminarProductoCarrito,
+    } = this.props;
     return (
       <div style={styles.divCarro}>
         <div style={styles.divSvg} onClick={mostrarOcultarCarro}>
@@ -41,7 +46,12 @@ export default class Carro extends Component {
           </svg>
           {visibilidadCarro ? null : <BubbleAlert carro={carro} />}
         </div>
-        {visibilidadCarro ? <DetallesCarro carro={carro} /> : null}
+        {visibilidadCarro ? (
+          <DetallesCarro
+            carro={carro}
+            eliminarProductoCarrito={eliminarProductoCarrito}
+          />
+        ) : null}
       </div>
     );
   }
