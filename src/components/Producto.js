@@ -15,9 +15,9 @@ const styles = {
     borderRadius: "5px",
     fontWeight: "bold",
     padding: "10px",
-    cursor:"pointer"
+    cursor: "pointer",
   },
-  img: { width: "100%" },
+  img: { width: "100%"},
 };
 
 export default class Producto extends Component {

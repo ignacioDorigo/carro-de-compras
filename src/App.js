@@ -12,8 +12,7 @@ export default class App extends Component {
       { nombre: "Tomate", precio: 1500, img: "/productos/tomate.jpg" },
       { nombre: "Lechuga", precio: 1000, img: "/productos/lechuga.jpg" },
       { nombre: "Arbejas", precio: 1750, img: "/productos/arbejas.jpg" },
-      { nombre: "Arbejas", precio: 1750, img: "/productos/arbejas.jpg" },
-      { nombre: "Arbejas", precio: 1750, img: "/productos/arbejas.jpg" },
+      { nombre: "Banana", precio: 2250, img: "/productos/banana.jpg" },
     ],
     carro: [],
     visibilidadCarro: false,
@@ -30,10 +29,19 @@ export default class App extends Component {
       return this.setState({ carro: nuevoCarro });
     }
   };
+
+  mostrarOcultarCarro = () => {
+    return this.setState({ visibilidadCarro: !this.state.visibilidadCarro });
+  };
   render() {
+    console.log(this.state.visibilidadCarro);
     return (
       <div>
-        <Navbar />
+        <Navbar
+          carro={this.state.carro}
+          visibilidadCarro={this.state.visibilidadCarro}
+          mostrarOcultarCarro={this.mostrarOcultarCarro}
+        />
         <Layout>
           <Titulo texto={"Tienda"} />
           <Productos

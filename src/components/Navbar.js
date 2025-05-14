@@ -16,10 +16,15 @@ const styles = {
 
 export default class Navbar extends Component {
   render() {
+    const { carro, mostrarOcultarCarro } = this.props;
     return (
       <nav style={styles.navbar}>
         <Logo />
-        <Carro />
+        <Carro
+          carro={carro}
+          visibilidadCarro={this.props.visibilidadCarro}
+          mostrarOcultarCarro={mostrarOcultarCarro}
+        />
       </nav>
     );
   }
